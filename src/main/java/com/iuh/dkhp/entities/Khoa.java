@@ -1,10 +1,7 @@
 package com.iuh.dkhp.entities;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 @Entity
 @Table(name = "Khoa")
@@ -12,6 +9,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @AllArgsConstructor
+@ToString
 public class Khoa {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

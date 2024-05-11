@@ -1,17 +1,20 @@
 package com.iuh.dkhp.entities;
+
 import jakarta.persistence.*;
 import lombok.*;
 
 @Entity
-@Table(name = "HocKy")
+@Table(name = "BangDiem")
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-public class HocKy {
+public class BangDiem {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int maHocKy;
-    private String tenHocKy;
+    @ManyToOne
+    private SinhVien sinhVien;
+    @Id
+    @OneToOne
+    private HocKy hocKy;
 }

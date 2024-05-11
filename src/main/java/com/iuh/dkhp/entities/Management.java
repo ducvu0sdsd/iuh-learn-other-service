@@ -1,10 +1,7 @@
 package com.iuh.dkhp.entities;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.util.Date;
 
@@ -14,6 +11,7 @@ import java.util.Date;
 @Getter
 @Setter
 @AllArgsConstructor
+@ToString
 public class Management {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -28,19 +26,4 @@ public class Management {
     private String diaChi;
     private String danToc;
 
-    @Override
-    public String toString() {
-        return "Management{" +
-                "ma=" + ma +
-                ", hoTen='" + hoTen + '\'' +
-                ", ngaySinh=" + ngaySinh +
-                ", noiSinh='" + noiSinh + '\'' +
-                ", gioiTinh=" + gioiTinh +
-                ", username='" + username + '\'' +
-                ", password='" + password + '\'' +
-                ", email='" + email + '\'' +
-                ", diaChi='" + diaChi + '\'' +
-                ", danToc='" + danToc + '\'' +
-                '}';
-    }
 }

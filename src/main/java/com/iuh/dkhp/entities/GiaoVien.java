@@ -1,9 +1,6 @@
 package com.iuh.dkhp.entities;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.util.Date;
 
@@ -13,6 +10,7 @@ import java.util.Date;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@ToString
 public class GiaoVien {
     @Id
     @GeneratedValue(strategy =  GenerationType.IDENTITY)
@@ -24,6 +22,7 @@ public class GiaoVien {
     private String email;
     private String diaChi;
     private String danToc;
+    private String soDienThoai;
     @ManyToOne
     @JoinColumn(name = "maKhoa")
     private Khoa khoa;

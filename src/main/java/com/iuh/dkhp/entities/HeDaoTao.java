@@ -4,19 +4,16 @@ import jakarta.persistence.*;
 import lombok.*;
 
 @Entity
-@Table(name = "ChuyenNganh")
+@Table(name = "HeDaoTao")
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-public class ChuyenNganh {
+public class HeDaoTao {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int maChuyenNganh;
-
-    @ManyToOne
-    @JoinColumn(name =  "maKhoa")
-    private Khoa khoa;
-    private String tenChuyenNganh;
+    private int maHeDaoTao;
+    private double giaTien;
+    private String tenHeDaoTao;
 }

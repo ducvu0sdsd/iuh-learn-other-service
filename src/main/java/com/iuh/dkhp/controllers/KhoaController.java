@@ -32,4 +32,9 @@ public class KhoaController {
     public boolean updateTenKhoa (@RequestBody Khoa khoa){
         return khoaService.updateName(khoa);
     }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<?> getById(@PathVariable("id") int id) {
+        return khoaService.findById(id);
+    }
 }

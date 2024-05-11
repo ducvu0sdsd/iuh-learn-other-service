@@ -1,12 +1,7 @@
 package com.iuh.dkhp.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import jakarta.persistence.*;
+import lombok.*;
 
 import java.util.Date;
 
@@ -16,6 +11,7 @@ import java.util.Date;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@ToString
 public class SinhVien {
     @Id
     private String mssv;
@@ -28,4 +24,9 @@ public class SinhVien {
     private String email;
     private String diaChi;
     private String danToc;
+    private String soDienThoai;
+    private String avatar;
+    @ManyToOne
+    @JoinColumn(name = "maLop")
+    private Lop lop;
 }

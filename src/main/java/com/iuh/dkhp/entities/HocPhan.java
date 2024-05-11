@@ -1,9 +1,6 @@
 package com.iuh.dkhp.entities;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 @Entity
 @Table(name = "HocPhan")
@@ -11,17 +8,19 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@ToString
 public class HocPhan {
     @Id
-    private String mahocPhan;
-    @OneToOne
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int maHocPhan;
+    @ManyToOne
     @JoinColumn(name = "maMonHoc")
     private MonHoc monHoc;
-    @OneToOne
-    @JoinColumn(name = "maGiaoVien")
-    private GiaoVien giaoVien;
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "maLop")
     private Lop lop;
-
+    @ManyToOne
+    @JoinColumn(name = "maHocKy")
+    private HocKy hocKy;
+    private String loaiDangKy;
 }

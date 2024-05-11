@@ -1,11 +1,10 @@
 package com.iuh.dkhp.services;
 
 import com.iuh.dkhp.entities.ChuyenNganh;
-import com.iuh.dkhp.entities.Khoa;
-import com.iuh.dkhp.repositories.KhoaRepository;
+import com.iuh.dkhp.entities.Lop;
+import com.iuh.dkhp.repositories.LopRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -15,43 +14,42 @@ import java.util.Optional;
 
 @Service
 @Transactional
-public class KhoaService {
-
+public class LopService {
     @Autowired
-    private KhoaRepository khoaRepository;
+    private LopRepository loprepository;
 
-    public ResponseEntity<?> createKhoa (Khoa khoa) {
-        Khoa khoaCreated = khoaRepository.save(khoa);
-        return ResponseEntity.status(HttpStatus.CREATED).body(khoaCreated);
+
+    public ResponseEntity<?> createLop (Lop lop) {
+        Lop lopCreated = loprepository.save(lop);
+        return ResponseEntity.status(HttpStatus.CREATED).body(lopCreated);
     }
 
-    public boolean removeKhoa (int id) {
+    public boolean removeLop (int id) {
         try {
-            khoaRepository.deleteById(id);
+            loprepository.deleteById(id);
             return true;
         } catch (Exception e) {
             return false;
         }
     }
-
     public ResponseEntity<?> getAll() {
-        List<Khoa> khoas = khoaRepository.findAll();
-        return ResponseEntity.ok().body(khoas);
+        List<Lop> lops = loprepository.findAll();
+        return ResponseEntity.ok().body(lops);
     }
 
-    public boolean updateName (Khoa khoa) {
+    public boolean updateLop (Lop lop) {
         try {
-            khoaRepository.save(khoa);
+            loprepository.save(lop);
             return true;
         }catch (Exception e) {
             return false;
         }
     }
-
+//
     public ResponseEntity<?> findById(int id) {
-        Optional<Khoa> khoas = khoaRepository.findById(id);
-        return khoas.map(khoa ->
-                        ResponseEntity.ok().body(khoa))
+        Optional<Lop> optionalLop = loprepository.findById(id);
+        return optionalLop.map(Lop ->
+                        ResponseEntity.ok().body(Lop))
                 .orElse(ResponseEntity.notFound().build());
     }
 }
