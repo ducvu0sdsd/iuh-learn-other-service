@@ -22,5 +22,8 @@ public class HocPhan {
     @ManyToOne
     @JoinColumn(name = "maHocKy")
     private HocKy hocKy;
+    @ManyToOne
+    @JoinColumn(name = "maPhong")
+    private Phong phong;
     private String loaiDangKy;
 }

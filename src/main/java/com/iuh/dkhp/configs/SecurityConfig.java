@@ -68,6 +68,11 @@ public class SecurityConfig {
                     .requestMatchers(HttpMethod.POST, "/api/v1/hedaotao").permitAll()
                     .requestMatchers(HttpMethod.GET, "/api/v1/hedaotao").permitAll()
                     .requestMatchers(HttpMethod.DELETE, "/api/v1/hedaotao/{id}").permitAll()
+                    .requestMatchers(HttpMethod.POST, "/api/v1/phong").permitAll()
+                    .requestMatchers(HttpMethod.DELETE, "/api/v1/phong/{id}").permitAll()
+                    .requestMatchers(HttpMethod.GET, "/api/v1/phong").permitAll()
+                    .requestMatchers(HttpMethod.POST, "/api/v1/phong/update").permitAll()
+                    .requestMatchers(HttpMethod.GET, "/api/v1/hocphan/mhk-mm/**").permitAll()
                     .anyRequest().authenticated();
         });
         http.csrf(httpSecurityCsrfConfigurer -> httpSecurityCsrfConfigurer.disable());

@@ -52,4 +52,14 @@ public class HocPhanService {
                 .orElse(ResponseEntity.notFound().build());
     }
 
+    @Transactional
+    public ResponseEntity<?> getHocPhanByHocKyAndMon (int maHocKy, int maMon) {
+        List<HocPhan> hocPhan = hocPhanRepository.getHocPhanByHocKyAndMon(maHocKy, maMon);
+        if (hocPhan == null) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Không Tìm Thấy Học Phần");
+        }else {
+            return ResponseEntity.ok().body(hocPhan);
+        }
+    }
+
 }

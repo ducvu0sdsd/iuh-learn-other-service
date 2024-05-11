@@ -39,5 +39,8 @@ public class HocPhanController {
         return hocPhanService.findById(id);
     }
 
-
+    @GetMapping("/mhk-mm")
+    public ResponseEntity<?> getHocPhanByHocKyAndMon (@RequestParam("maHocKy") int maHocky, @RequestParam("maMon") int maMon) {
+        return hocPhanService.getHocPhanByHocKyAndMon(maHocky, maMon);
+    }
 }
