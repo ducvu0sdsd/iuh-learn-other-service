@@ -14,4 +14,5 @@ public class HocKy {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int maHocKy;
     private String tenHocKy;
+    private boolean choPhepDangKy;
 }

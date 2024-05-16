@@ -1,6 +1,7 @@
 package com.iuh.dkhp.controllers;
 
 import com.iuh.dkhp.entities.HeDaoTao;
+import com.iuh.dkhp.entities.HocKy;
 import com.iuh.dkhp.services.HeDaoTaoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -27,5 +28,10 @@ public class HeDaoTaoController {
     @GetMapping("")
     public ResponseEntity<?> getAllHeDaoTao () {
         return heDaoTaoService.getAllHeDaoTao();
+    }
+
+    @PostMapping("/update")
+    public boolean updateHeDaoTao (@RequestBody HeDaoTao hedaotao){
+        return heDaoTaoService.updateHeDaoTao(hedaotao);
     }
 }

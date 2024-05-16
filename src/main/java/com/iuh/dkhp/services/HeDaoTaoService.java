@@ -1,6 +1,7 @@
 package com.iuh.dkhp.services;
 
 import com.iuh.dkhp.entities.HeDaoTao;
+import com.iuh.dkhp.entities.HocKy;
 import com.iuh.dkhp.repositories.HeDaoTaoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -17,7 +18,7 @@ public class HeDaoTaoService {
     @Autowired
     private HeDaoTaoRepository heDaoTaoRepository;
 
-    public ResponseEntity<?> createHeDaoTao (HeDaoTao heDaoTao) {
+    public ResponseEntity<?> createHeDaoTao(HeDaoTao heDaoTao) {
         try {
             HeDaoTao heDaoTaoCreated = heDaoTaoRepository.save(heDaoTao);
             return ResponseEntity.ok().body(heDaoTaoCreated);
@@ -26,7 +27,7 @@ public class HeDaoTaoService {
         }
     }
 
-    public ResponseEntity<?> removeHeDaoTao (int id) {
+    public ResponseEntity<?> removeHeDaoTao(int id) {
         try {
             heDaoTaoRepository.deleteById(id);
             return ResponseEntity.ok().body("Xóa Hệ Đào Tạo Thành Công");
@@ -35,9 +36,17 @@ public class HeDaoTaoService {
         }
     }
 
-    public ResponseEntity<?> getAllHeDaoTao () {
+    public ResponseEntity<?> getAllHeDaoTao() {
         List<HeDaoTao> heDaoTaoList = heDaoTaoRepository.findAll();
         return ResponseEntity.ok().body(heDaoTaoList);
     }
 
+    public boolean updateHeDaoTao(HeDaoTao hedaotao) {
+        try {
+            heDaoTaoRepository.save(hedaotao);
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
+    }
 }

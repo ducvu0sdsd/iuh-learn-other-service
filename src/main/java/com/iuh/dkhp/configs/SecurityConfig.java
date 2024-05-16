@@ -73,6 +73,7 @@ public class SecurityConfig {
                     .requestMatchers(HttpMethod.GET, "/api/v1/phong").permitAll()
                     .requestMatchers(HttpMethod.POST, "/api/v1/phong/update").permitAll()
                     .requestMatchers(HttpMethod.GET, "/api/v1/hocphan/mhk-mm/**").permitAll()
+                    .requestMatchers(HttpMethod.POST, "/api/v1/hedaotao/update").permitAll()
                     .anyRequest().authenticated();
         });
         http.csrf(httpSecurityCsrfConfigurer -> httpSecurityCsrfConfigurer.disable());
